@@ -1,0 +1,722 @@
+<html>
+  <head>
+    <title>CSS Loading Animation</title>
+
+    <meta charset="UTF-8" />
+
+    <meta name="description" content="HTML starter reset file" />
+    <meta
+      name="keywords"
+      content="html, css, events, mouse, keyboard, mobile first, media queries"
+    />
+    <meta name="author" content="You" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style style="stylesheet/css">
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #root {
+      }
+
+      main {
+        height: 100%;
+      }
+
+      * {
+        font-family: Arial;
+      }
+
+      /* padding shouldn't impact element width this is also CSS grid's default setting */
+      * {
+        box-sizing: border-box;
+      }
+
+      .noselect {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+      }
+
+      /* vertical and horizontal align */
+      /* vertical and horizontal align */
+      .f {
+        display: flex;
+      }
+      .v {
+        align-items: center;
+      }
+      .h {
+        justify-content: center;
+      }
+      .r {
+        flex-direction: row;
+      }
+      .c {
+        flex-direction: column;
+      }
+      .s {
+        justify-content: space-around;
+      }
+      .p {
+        padding: 10px;
+      }
+      .pp {
+        padding: 20px;
+      }
+      .ppp {
+        padding: 30px;
+      }
+      .b {
+        font-size: 28px;
+      }
+
+      .abs {
+        position: absolute;
+      }
+      .rel {
+        position: relative;
+      }
+
+      /* Chrome applies blue "usability" background  to autofilled input boxes, but it's a nightmare for custom design */
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+      }
+
+      /* Remove Chrome outline (same reason as above) */
+      *:focus {
+        outline: none;
+      }
+      .logo-image {
+        width: 112px;
+        height: 21px;
+      }
+
+      /* Mobile first, means this media query first -- use min-width in ascending order
+     Smallest phone screen (iphone, android, etc.) */
+      @media screen and (max-width: 600px) {
+      }
+
+      /* Next wider view (iphone pro, etc) */
+      @media screen and (max-width: 800px) {
+        footer {
+          flex-direction: column;
+        }
+
+        .nav-left-cont > * {
+          margin-left: 8px !important;
+          margin-right: 8px !important;
+          padding-right: 8px !important;
+          padding-left: 8px !important;
+        }
+      }
+      /* For Navigation */
+      @media screen and (max-width: 450px) {
+        .logo-image {
+          /* display: none; */
+          width: 60px;
+          height: 20px;
+        }
+        /* .logo-image-mobile{
+          display: inline;
+        } */
+        .nav-left-cont > * {
+          margin-left: 4px !important;
+          margin-right: 4px !important;
+          padding-right: 4px !important;
+          padding-left: 4px !important;
+          font-size: 14px !important;
+        }
+        .mini-button {
+          height: 30px !important;
+        }
+      }
+
+      @media screen and (max-width: 345px) {
+        .logo-image {
+          width: 40px;
+          height: 18px;
+        }
+      }
+
+      /* Next wider view (tablets) */
+      @media screen and (max-width: 1000px) {
+        #login {
+          flex-direction: column;
+          max-width: 520px;
+        }
+        #login-form {
+          padding-right: 0 !important;
+          margin-right: 0 !important;
+          border-right: unset !important;
+        }
+        #registernotes {
+          padding: 18px !important;
+          border-top: 1px solid #dadada;
+        }
+        #about-you {
+          margin-right: 16px;
+        }
+      }
+
+      /* Nav Media Query Screen */
+      @media screen and (max-width: 1080px) {
+        .control-pc-nav {
+          display: none;
+        }
+      }
+
+      /* Full screen desktop */
+      @media screen and (max-width: 1200px) {
+      }
+
+      .col {
+        padding: 10px;
+      }
+      .row {
+        padding: 10px;
+      }
+      .point {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: -2px;
+        width: 10px;
+        height: 10px;
+        background: yellowgreen !important;
+        border-radius: 50%;
+      }
+      .red-bg {
+        background: red !important;
+      }
+      .orangered-bg {
+        background: orangered !important;
+      }
+      .orange-bg {
+        background: orange !important;
+      }
+      .yellowgreen-bg {
+        background: yellowgreen !important;
+      }
+      .green-bg {
+        background: green !important;
+      }
+      .lime-bg {
+        background: limegreen !important;
+      }
+      .yellow-bg {
+        background: yellow !important;
+      }
+      .gray-bg {
+        background: gray !important;
+      }
+      .red-bg {
+        background: red !important;
+      }
+      .black-bg {
+        background: black !important;
+      }
+
+      .icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border: 1px solid gray;
+      }
+
+      .cat {
+        display: inline-block;
+        height: 24px;
+        border: 1px solid gray;
+      }
+
+      .news {
+        border: 1px solid gray;
+      }
+
+      * {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+          Helvetica Neue, Ubuntu, sans-serif;
+      }
+
+      /* -- registration input style -- */
+      #first-last {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 400px !important;
+      }
+
+      #first-last .input-container {
+      }
+
+      #first-last input {
+        width: 200px !important;
+        margin-right: 20px;
+      }
+
+      input {
+        border: 2px solid #ccc !important;
+        border-radius: 3px;
+      }
+
+      input {
+        padding: 7px;
+      }
+      input {
+        font-size: 16px;
+      }
+
+      input:focus {
+        border: 2px solid #888 !important;
+      }
+
+      .input-container .input-placeholder {
+        position: absolute;
+        top: 10px;
+        left: 8px;
+        font-size: 15px;
+        font-family: Arial;
+        background: white;
+        padding-left: 4px;
+        padding-right: 8px;
+        transition: 0.2s;
+        pointer-events: none;
+        color: #888;
+      }
+
+      .input-placeholder.active {
+        top: -8px;
+        left: 5px;
+        color: #888;
+        transform: scale(0.8);
+      }
+
+      .input-container {
+        margin: 15px 0;
+        position: relative;
+      }
+
+      .input-container input {
+        width: 420px;
+        max-width: 420px;
+      }
+
+      .grey-bg {
+        background: #eee;
+      }
+
+      .grey {
+        color: #555;
+      }
+
+      body {
+        background: #efefef;
+      }
+
+      #register {
+        background: #fff;
+      }
+
+      .box-header {
+        border-bottom: 1px solid #dadada;
+      }
+
+      .pad-left {
+        padding-left: 32px;
+      }
+
+      .pad-right {
+        padding-right: 32px;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      .max1000 {
+        max-width: 1000px;
+      }
+
+      .mini-button {
+        /*background: ;*/
+        color: #777;
+        border: 1px solid #dadada;
+        padding: 4px 15px;
+        font-size: 15px;
+        border-radius: 3px;
+        cursor: pointer;
+        height: 32px;
+      }
+
+      .mini-button:hover {
+        border: 1px solid #aaa;
+      }
+
+      .button {
+        /*background: ;*/
+        color: #777;
+        border: 2px solid #dadada;
+        padding: 8px 25px;
+        font-size: 18px;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .button:hover {
+        border: 2px solid #777;
+      }
+
+      .mar {
+        margin: 13px;
+      }
+
+      .no-border {
+        border: 0 !important;
+      }
+
+      #registerButton {
+        background: #007fff;
+        color: white;
+        padding: 8px 25px;
+        font-size: 18px;
+        border-radius: 3px;
+        text-shadow: 1px 1px 3px #777;
+        cursor: pointer;
+      }
+
+      nav {
+        height: 24px;
+      }
+      nav div {
+        padding: 3px 8px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .logo-image {
+        cursor: pointer;
+      }
+
+      label {
+        cursor: pointer;
+      }
+
+      footer div {
+        padding: 16px;
+      }
+
+      .sme-tab {
+        background: #efefef;
+        border-bottom: 1px solid #dedede;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .sme-mid {
+        background: #efefef;
+        border-bottom: 1px solid #dedede;
+        border-top: 1px solid #dedede;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      #subnav {
+        background: white;
+        position: absolute;
+        min-width: 250px;
+        height: auto;
+        display: none;
+        top: 58px;
+        right: 16px;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        box-shadow: 0 0 2px #ddd;
+        padding: 0;
+        padding-bottom: 8px;
+        box-shadow: 0 2px 5px #ddd;
+        z-index: 10000;
+      }
+
+      #sub-arrow-up {
+        position: absolute;
+        top: -9px;
+        right: 52px;
+        width: 16px;
+        height: 9px;
+        background: url("https://www.semicolon.dev/static/arrow-up.png")
+          no-repeat;
+        z-index: 10001;
+      }
+
+      .nspacer {
+        padding: 0 !important;
+        height: 8px !important;
+      }
+
+      #subnav * {
+        padding: 8px 15px;
+        font-weight: normal !important;
+      }
+
+      #themebox {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 26px;
+        height: 26px;
+        border: 1px solid gray;
+        padding: 0;
+      }
+
+      #icon-darkmode {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        width: 48px;
+        height: 48px;
+        background: white;
+        margin-top: -4px;
+      }
+      #icon-sun {
+        transition: 0.4s;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 48px;
+        height: 48px;
+        background: url("https://www.semicolon.dev/static/sunicon2.png")
+          no-repeat;
+      }
+      #icon-moon {
+        transition: 0.4s;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 48px;
+        height: 48px;
+        background: url("https://www.semicolon.dev/static/moonicon2.png")
+          no-repeat;
+      }
+      #icon-sun.hidden {
+        top: 72px;
+        transform: rotate(180deg);
+      }
+      #icon-moon.hidden {
+        top: -72px;
+        transform: rotate(180deg);
+      }
+
+      /**
+        Nav Mobile Css
+      */
+
+      .control-pc-nav,
+      .img-cont {
+        padding: 0 !important;
+        margin: 0px !important;
+      }
+    </style>
+
+    <!-- Note: type "module", not "javascript" -->
+    <script type="module">
+      // Use $ and $$ instead of dinosauric document.querySelector function
+      let $ = (selector) => document.querySelector(selector);
+      let $$ = (selector) => document.querySelectorAll(selector);
+
+      // Sort array by its fields
+      const sortFields = (fields, invert) => (a, b) =>
+        fields
+          .map((o) => {
+            let dir = 1;
+            if (o[0] === "-") {
+              dir = -1;
+              o = o.substring(1);
+            }
+            return a[o] > b[o] ? dir : a[o] < b[o] ? -dir : 0;
+          })
+          .reduce((p, n) => (p ? p : n), 0);
+
+      let howmany = 0;
+
+      class Followers {
+        constructor() {}
+      }
+      Followers.json = {};
+      Followers.fetch = (F) => {
+        /* fetch("https://www.javascriptteacher.com/followers.json", {
+        method: "get"
+       }).then( (response) => response.text().then(msg => {
+    }); */
+      };
+
+      let DMT = null;
+      let darkmode = false;
+      function ToggleDarkMode() {
+        let classLiss = $("#icon-darkmode").classList;
+        let classLisa = $("#icon-sun").classList;
+        let classLism = $("#icon-moon").classList;
+        //let settings = $("#settings").classList;
+        //let cog = $(".cog").classList;
+        if (classLisa[0] == "hidden") {
+          classLisa.remove("hidden");
+          classLism.add("hidden");
+          //setActiveStyleSheet("light");
+          //document.getElementById("world").setAttribute("src", "https://www.semicolon.dev/static/world.png");
+          darkmode = false;
+          //img = document.getElementById("world");
+        } else {
+          classLisa.add("hidden");
+          classLism.remove("hidden");
+          //setActiveStyleSheet("dark");
+          //document.getElementById("world").setAttribute("src", "https://www.semicolon.dev/static/world-dark.png");
+          darkmode = true;
+          //img = document.getElementById("world-dark");
+        }
+      }
+
+      let submenu = false;
+      function ToggleSubmenu() {
+        if (submenu) $(`#subnav`).style.display = `none`;
+        else $(`#subnav`).style.display = `block`;
+        submenu = !submenu;
+      }
+
+      window.addEventListener("DOMContentLoaded", (event) => {
+        /* Your DOM just loaded */
+        // window.Followers = Followers;
+        $(`#icon-darkmode`).addEventListener(`click`, (event) =>
+          ToggleDarkMode()
+        );
+        $(`#submenu-button`).addEventListener(`click`, (event) =>
+          ToggleSubmenu()
+        );
+      });
+
+      window.onload = (event) => {
+        /* Your media (images, etc.) just loaded */
+      };
+    </script>
+  </head>
+  <body>
+    <div class="f c">
+      <div>
+        <header
+          class="black pp"
+          style="background: #fff; border-bottom: 1px solid #dadada"
+        >
+          <nav class="f r">
+            <div class="img-cont">
+              <img
+                class="logo-image"
+                src="/static/semicolon-logo.png"
+                alt="Semicolon Logo"
+              />
+            </div>
+            <div class="f r control-pc-nav">
+              <div style="width: 16px"></div>
+              <div class="mini-button no-select no-border">Curriculum</div>
+              <div class="mini-button no-select no-border">Tutorials</div>
+              <div class="mini-button no-select no-border">Contact</div>
+              <div class="mini-button no-select no-border">About</div>
+            </div>
+
+            <div
+              class="f v nav-left-cont"
+              style="position: absolute; top: 0; right: 0"
+            >
+              <div class="mini-button mar noselect auth-btn" onclick="login()">Login</div>
+              <div class="mini-button mar noselect auth-btn" onclick="login()">Register</div>
+              <div
+                class="mini-button mar noselect f v h auth-user"
+                style="padding: 0 8px"
+              >
+                <img
+                  src="https://semicolon.dev/static/alertoff.png"
+                  style="width: 22px; height: 22px"
+                />
+              </div>
+              <div class="mini-button mar noselect auth-user">
+                <b>@mansionworld</b>
+              </div>
+              <div
+                id="submenu-button"
+                class="mini-button mar noselect f v h auth-user"
+              >
+                <img
+                  src="https://semicolon.dev/static/user-arrow-down.png"
+                  style="width: 14px; height: 8px"
+                />
+              </div>
+              <div id="icon-darkmode" class="hidden">
+                <div id="icon-sun" class=""></div>
+                <div id="icon-moon" class="hidden"></div>
+              </div>
+            </div>
+
+            <div id="subnav" class="f v h r noselect">
+              <div id="sub-arrow-up"></div>
+              <div>Signed in as</div>
+              <span style="font-weight: bold">gregsometimes@gmail.com</span>
+              <div class="nspacer"></div>
+              <div class="sme-tab">Welcome</div>
+              <div class="nspacer"></div>
+              <div>My Progress</div>
+              <div>Dashboard</div>
+              <div class="nspacer"></div>
+              <div class="sme-mid">Account</div>
+              <div class="nspacer"></div>
+              <div>My Profile</div>
+              <div>Settings</div>
+              <div onclick="logout()">Log Out</div>
+            </div>
+          </nav>
+        </header>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let logout = () => {
+      document
+        .querySelectorAll(".auth-user")
+        .forEach((btn) => (btn.style.display = "none"));
+      document
+        .querySelectorAll(".auth-btn")
+        .forEach((btn) => (btn.style.display = ""));
+        document.querySelector("#subnav").style.display = "none"
+        sessionStorage.clear()
+
+    };
+    let checkoutAuth = () => {
+      let isLoggedIn = sessionStorage.getItem("user");
+      if (isLoggedIn) {
+        document
+          .querySelectorAll(".auth-btn")
+          .forEach((btn) => (btn.style.display = "none"));
+        document
+          .querySelectorAll(".auth-user")
+          .forEach((btn) => (btn.style.display = ""));
+      } else {
+        logout();
+      }
+    };
+    let login = () => {
+      sessionStorage.setItem("user", JSON.stringify({ username: "idevosm" }));
+      checkoutAuth();
+    };
+
+    let register = login;
+    checkoutAuth();
+  </script>
+</html>
